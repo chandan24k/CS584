@@ -3,7 +3,7 @@ from sklearn.model_selection import KFold, train_test_split
 from sklearn.metrics import mean_squared_error
 from sklearn.utils import resample
 from sklearn.linear_model import LinearRegression
-from statsmodels.tools.eval_measures import aic
+
 
 class ModelSelector:
     def __init__(self, model, k=5, n_bootstraps=100, random_state=None):
@@ -45,19 +45,34 @@ class ModelSelector:
 
         return np.mean(bootstrap_errors)
 
+    
     def calculate_aic(self, X, y):
         self.model.fit(X, y)
         y_pred = self.model.predict(X)
-        aic_score = aic(y, y_pred, self.model)
+        mse = mean_squared_error(y, y_pred)
+        n = len(y)
+        p = X.shape[1] + 1  # Number of features + intercept
+        aic_score = n * np.log(mse) + 2 * p
         return aic_score
+
+    def calculate_bic(self, X, y):
+        self.model.fit(X, y)
+        y_pred = self.model.predict(X)
+        mse = mean_squared_error(y, y_pred)
+        n = len(y)
+        p = X.shape[1] + 1  # Number of features + intercept
+        bic_score = n * np.log(mse) + p * np.log(n)
+        return bic_score
 
     def evaluate(self, X, y):
         cv_score = self.k_fold_cv(X, y)
         bootstrap_score = self.bootstrap(X, y)
         aic_score = self.calculate_aic(X, y)
+        bic_score = self.calculate_bic(X, y)
         
         return {
             "k_fold_cv": cv_score,
             "bootstrap": bootstrap_score,
-            "aic": aic_score
+            "aic": aic_score,
+            "bic": bic_score
         }
