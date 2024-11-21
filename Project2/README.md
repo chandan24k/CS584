@@ -16,7 +16,8 @@ In this case, AIC and BIC values are consistent with the relatively low MSE valu
 
 Here’s how to interpret the alignment:
 
-Bootstrap MSE (1.3516) is slightly lower than CV MSE (1.7455), which is common when the model performs reliably on different samples but sees a slight improvement with additional bootstrap sampling.
+**Bootstrap MSE (1.3516)** is slightly lower than **CV MSE (1.7455)** only with 50 records of data, also we increased the amount of data to 3551 records then we got **k-fold CV MSE: 1.2206262241189405** and
+**Bootstrap MSE: 1.2175121427152984**, which is common when the model performs reliably on different samples but sees a slight improvement with additional bootstrap sampling.
 AIC and BIC are in a lower range, suggesting this model balances fit and simplicity.
 Conclusion: In this simple linear regression case, all selectors (AIC, BIC, CV MSE, and Bootstrap MSE) agree that this model fits the data without indicating overfitting or underfitting.
 
