@@ -10,7 +10,7 @@ To run the python code you can use this "python -m generic-kfold-bootstrap.tests
 
 # Questions
 
-1. Do your cross-validation and bootstrapping model selectors agree with a simpler model selector like AIC in simple cases (like linear regression)?
+**1. Do your cross-validation and bootstrapping model selectors agree with a simpler model selector like AIC in simple cases (like linear regression)?**
 
 In this case, AIC and BIC values are consistent with the relatively low MSE values from cross-validation and bootstrap. Since all metrics (CV MSE, Bootstrap MSE, AIC, and BIC) indicate reasonable fit and consistency without drastic discrepancies, we can say they align in terms of suggesting that this linear regression model is a good fit for the data.
 
@@ -21,7 +21,7 @@ Here’s how to interpret the alignment:
 AIC and BIC are in a lower range, suggesting this model balances fit and simplicity.
 Conclusion: In this simple linear regression case, all selectors (AIC, BIC, CV MSE, and Bootstrap MSE) agree that this model fits the data without indicating overfitting or underfitting.
 
-2. In what cases might the methods you've written fail or give incorrect or undesirable results?
+**2. In what cases might the methods you've written fail or give incorrect or undesirable results?**
 
 Overfitting in complex models: For models with many features or complex structures, cross-validation and bootstrap methods might give low MSE due to overfitting, while AIC and BIC might rise, indicating the model is too complex.
 
@@ -31,7 +31,7 @@ Non-normal residuals: AIC and BIC assume that errors are normally distributed, w
 
 High-dimensional data: If the number of features is close to the number of observations, AIC and BIC could be unreliable as they heavily penalize models with many parameters relative to data size.
 
-3. What could you implement given more time to mitigate these cases or help users of your methods?
+**3. What could you implement given more time to mitigate these cases or help users of your methods?**
 
 Residual Analysis: Add residual analysis to check assumptions of normality and homoscedasticity (constant variance) for both AIC and BIC validity.
 
@@ -41,7 +41,7 @@ Error Distributions: Allow users to specify alternative error distributions for 
 
 Cross-validation on a Range of Models: Implement automated model selection across different model types (e.g., linear, polynomial) to help users find the best fit.
 
-4. What parameters have you exposed to your users in order to use your model selectors?
+**4. What parameters have you exposed to your users in order to use your model selectors?**
 
 k: The number of folds for k-fold cross-validation (default is 5).
 
