@@ -1,12 +1,12 @@
-Group Members:-
+**Group Members:-**
 
-Chandan Kumar - CWID - A20525237
+**Chandan Kumar - CWID - A20525237**
 
-Nanda Kishore Thummala - CWID - A20595194
+**Nanda Kishore Thummala - CWID - A20595194**
 
-Niharika Bandaru - CWID - A20600363
+**Niharika Bandaru - CWID - A20600363**
 
-To run the python code you can use this "python -m generic-kfold-bootstrap.tests.test_model_selector"
+To run the python code you can use this **"python -m generic-kfold-bootstrap.tests.test_model_selector"**
 
 # Questions
 
